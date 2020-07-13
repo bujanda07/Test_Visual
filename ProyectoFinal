@@ -1,0 +1,74 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.image.*;
+
+import java.io.*;
+import javax.imageio.*;
+import java.awt.event.*;
+
+class ProyectoFinal extends JFrame implements ActionListener {
+
+	JPanel panel;
+	JLabel indicaciones;
+	Indicaciones img_indicaciones;
+
+	JButton iniciar;
+
+	JLabel nota;
+
+	public ProyectoFinal()
+	{
+		panel=new JPanel();
+		panel.setLayout(null);
+
+		indicaciones= new JLabel("INDICACIONES");
+		indicaciones.setBounds(300,60,500,90);
+		indicaciones.setForeground(Color.ORANGE);
+		//indicaciones.setOpaque(true);
+		//indicaciones.setBackground(Color.BLACK);
+		indicaciones.setFont(new Font("arial",Font.BOLD,50));
+
+		img_indicaciones=new Indicaciones();
+		img_indicaciones.setBounds(100,150,774,426);
+
+		nota= new JLabel("*NOTA: Se recomienda acudir al medico despues de esta prueba, para confirmar datos.");
+		nota.setBounds(90,650,900,30);
+		nota.setFont(new Font("arial",1,20));
+
+		iniciar= new JButton("INICIAR PRUEBA");
+		iniciar.setBounds(375,700,200,50);
+
+
+
+		panel.add(indicaciones);
+		panel.add(img_indicaciones);
+		panel.add(nota);
+		panel.add(iniciar);
+
+
+
+		
+	
+		this.add(panel);
+		this.setTitle("TEST VISUAL");
+		this.setBounds(0,0,1000,1000);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		//this.fillRect(0,0,1000,1000);	
+		iniciar.addActionListener(this);
+		
+	}
+
+	public void actionPerformed(ActionEvent event)
+	{
+		if (event.getSource()==this.iniciar)
+		{
+			PruebaVisual pb= new PruebaVisual();
+		}
+
+	}
+	
+
+
+	
+}
