@@ -1,0 +1,350 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
+import java.awt.event.*;
+import javax.sound.midi.*;
+
+class Contraste extends JFrame implements ActionListener{
+
+	JPanel panel3;
+	JLabel contrastes;
+
+	JLabel instrucciones;
+	JLabel instrucciones2;
+	JLabel instrucciones3;
+
+	PruebaC prueba;
+
+	int puntos=0;
+	JButton volver;
+	JButton siguiente;
+
+	JButton boton;
+
+	int puntosContraste=0;
+
+	JTextField numero1;
+	JTextField numero2;
+	JTextField numero3;
+	JTextField numero4;
+	JTextField numero5;
+	JTextField numero6;
+	JTextField numero7;
+	JTextField numero8;
+	JTextField numero9;
+	JTextField numero10;
+	JTextField numero11;
+	JTextField numero12;
+
+
+	
+
+	Contraste(){
+
+		panel3= new JPanel();
+		panel3.setLayout(null);
+
+		prueba = new PruebaC();
+		prueba.setBounds(100,250,597,417);
+
+		contrastes=new JLabel("DETECCION DE CONTSASTES");
+		contrastes.setBounds(150,60,800,50);
+		contrastes.setForeground(Color.GREEN);
+		contrastes.setFont(new Font("arial",Font.BOLD,50));
+
+
+		volver=new JButton("VOLVER");
+		volver.setBounds(100,700,100,50);
+
+		siguiente= new JButton("SIGUIENTE");
+		siguiente.setBounds(800,700,100,50);
+
+		siguiente= new JButton("SIGUIENTE");
+		siguiente.setBounds(800,700,100,50);
+
+		numero1=new JTextField();
+		numero1.setBounds(800,250,100,20);
+
+		numero2=new JTextField();
+		numero2.setBounds(800,270,100,20);
+
+		numero3=new JTextField();
+		numero3.setBounds(800,290,100,20);
+
+		numero4=new JTextField();
+		numero4.setBounds(800,310,100,20);
+
+		//numero4=new JTextField();
+		//numero4.setBounds(100,350,100,20);
+
+		numero5=new JTextField();
+		numero5.setBounds(800,420,100,20);
+
+		numero6=new JTextField();
+		numero6.setBounds(800,440,100,20);
+
+		numero7=new JTextField();
+		numero7.setBounds(800,460,100,20);
+
+		numero8=new JTextField();
+		numero8.setBounds(800,480,100,20);
+
+
+
+		numero9=new JTextField();
+		numero9.setBounds(800,590,100,20);
+
+		numero10=new JTextField();
+		numero10.setBounds(800,610,100,20);
+
+		numero11=new JTextField();
+		numero11.setBounds(800,630,100,20);
+
+		numero12=new JTextField();
+		numero12.setBounds(800,650,100,20);
+
+		instrucciones= new JLabel("Se evaluara la distincion de contrastes para lo cual sera necesario");
+		instrucciones.setBounds(100,150,800,30);
+		instrucciones.setFont(new Font("arial",1,20));
+
+		instrucciones2 = new JLabel("que escriba dentro de los espacion la orientacion de las piezas faltantes");
+		instrucciones2.setBounds(100,180,800,30);
+		instrucciones2.setFont(new Font("arial",1,20));
+
+		instrucciones3 = new JLabel("empezando de izquierda a derecha. Al terminar se le mostrara el resultado.");
+		instrucciones3.setBounds(100,210,800,30);
+		instrucciones3.setFont(new Font("arial",1,20));
+		//boton=new JButton("nuevo");
+		//boton.setBounds(100,200,100,20);
+
+		//panel3.add(boton);
+
+
+
+		panel3.add(contrastes);
+		panel3.add(prueba);
+		panel3.add(volver);
+		panel3.add(siguiente);
+
+		panel3.add(instrucciones);
+		panel3.add(instrucciones2);
+		panel3.add(instrucciones3);
+
+		panel3.add(numero1);
+		panel3.add(numero2);
+		panel3.add(numero3);
+		panel3.add(numero4);
+
+		panel3.add(numero5);
+		panel3.add(numero6);
+		panel3.add(numero7);
+		panel3.add(numero8);
+
+		panel3.add(numero9);
+		panel3.add(numero10);
+		panel3.add(numero11);
+		panel3.add(numero12);
+
+		
+		//comparar();
+
+		this.add(panel3);
+		this.setTitle("PRUEBA_VISUAL");
+		this.setSize(1000,1000);
+		this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+		this.setVisible(true); 
+		volver.addActionListener(this);
+		siguiente.addActionListener(this);
+
+
+	}
+
+	public void actionPerformed(ActionEvent event)
+	{
+		
+		if (event.getSource()==this.siguiente)
+		{
+			//dispose();
+			String respuesta;
+			
+			int puntos=0;
+			respuesta=numero1.getText();
+		
+					if (respuesta.equals("arriba"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+
+					String respuesta2;
+					respuesta2=numero2.getText();
+					if(respuesta2.equals("abajo"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+
+					String respuesta3;
+					respuesta3=numero3.getText();
+
+					if(respuesta3.equals("derecha"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta4;
+					respuesta4=numero4.getText();
+
+					if(respuesta4.equals("izquierda"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta5;
+					respuesta5=numero5.getText();
+
+					if(respuesta5.equals("abajo"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta6;
+					respuesta6=numero6.getText();
+
+					if(respuesta6.equals("izquierda"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta7;
+					respuesta7=numero7.getText();
+
+					if(respuesta7.equals("arriba"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta8;
+					respuesta8=numero8.getText();
+
+					if(respuesta8.equals("derecha"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta9;
+					respuesta9=numero9.getText();
+
+					if(respuesta9.equals("derecha"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta10;
+					respuesta10=numero10.getText();
+
+					if(respuesta10.equals("abajo"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta11;
+					respuesta11=numero11.getText();
+
+					if(respuesta11.equals("izquierda"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta12;
+					respuesta12=numero12.getText();
+
+					if(respuesta12.equals("arriba"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					System.out.println("TOTAL: "+puntos);
+
+							if (puntos==12)
+							{
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: EXCELENTE","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							 }
+
+							else if (puntos==11){
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: REGULAR","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}
+
+							else if (puntos==10){
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: DEFICIENTE","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}
+							else if(puntos<10){
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: MALA","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}
+							/*else if(puntos==0){
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: MALA","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}*/
+
+							puntosContraste=puntosContraste+puntos;
+
+			Colores colores = new Colores();
+		}
+		if (event.getSource()==this.volver)
+		{
+			dispose();
+			PruebaVisual pb= new PruebaVisual();
+		}
+	}
+
+	
+
+	/*public void comparar()
+	{
+		int puntos=0;
+		
+		if (numero1.getText().equals("arriba"))
+		{
+			//puntos=puntos+1;
+			System.out.println("un punto mas");
+		}
+		
+	}*/
+}
