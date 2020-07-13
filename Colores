@@ -1,0 +1,188 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
+import java.awt.event.*;
+import javax.sound.midi.*;
+
+class Colores extends JFrame implements ActionListener{
+
+	JPanel panel4;
+	JLabel colores;
+
+	JLabel instrucciones;
+	JLabel instrucciones2;
+	JLabel instrucciones3;
+
+
+	JButton volver;
+	JButton siguiente;
+
+	int puntosColor=0;
+	PruebaD colors;
+
+	JTextField numero1;
+	JTextField numero2;
+	JTextField numero3;
+	JTextField numero4;
+
+	Colores(){
+
+		panel4=new JPanel();
+		panel4.setLayout(null);
+
+		colores= new JLabel("PERCEPCION DEL COLOR");
+		colores.setBounds(300,60,800,50);
+		colores.setForeground(Color.PINK);
+		colores.setFont(new Font("arial",Font.BOLD,50));
+
+		volver=new JButton("VOLVER");
+		volver.setBounds(100,700,100,50);
+
+		siguiente= new JButton("SIGUIENTE");
+		siguiente.setBounds(800,700,100,50);
+
+		colors = new PruebaD();
+		colors.setBounds(100,250,597,417);
+
+		numero1=new JTextField();
+		numero1.setBounds(700,300,100,20);
+
+		numero2=new JTextField();
+		numero2.setBounds(700,350,100,20);
+
+		numero3=new JTextField();
+		numero3.setBounds(700,500,100,20);
+
+		numero4=new JTextField();
+		numero4.setBounds(700,550,100,20);
+
+
+		instrucciones=new JLabel("La percepcion de color sera la ultima prueba en la cual");
+		instrucciones.setBounds(100,150,800,30);
+		instrucciones.setFont(new Font("arial",1,20));
+
+		instrucciones2= new JLabel ("identificara la orientacion de la letra C dntro de los");
+		instrucciones2.setBounds(100,180,800,30);
+		instrucciones2.setFont(new Font("arial",1,20));
+
+		instrucciones3= new JLabel("modulos de color. De izquierda a derecha.");
+		instrucciones3.setBounds(100,210,800,30);
+		instrucciones3.setFont(new Font("arial",1,20));
+
+
+		panel4.add(colores);
+		panel4.add(colors);
+		panel4.add(volver);
+		panel4.add(siguiente);
+		panel4.add(numero1);
+		panel4.add(numero2);
+		panel4.add(numero3);
+		panel4.add(numero4);
+
+		panel4.add(instrucciones);
+		panel4.add(instrucciones2);
+		panel4.add(instrucciones3);
+
+		this.add(panel4);
+		this.setTitle("PRUEBA_VISUAL");
+		this.setSize(1000,1000);
+		this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+		this.setVisible(true); 
+		volver.addActionListener(this);
+		siguiente.addActionListener(this);
+	}
+
+	public void actionPerformed(ActionEvent event)
+	{
+		if (event.getSource()==this.siguiente)
+		{
+			String respuesta;
+			
+			int puntos=0;
+			respuesta=numero1.getText();
+		
+					if (respuesta.equals("izquierda"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+
+					String respuesta2;
+					respuesta2=numero2.getText();
+					if(respuesta2.equals("abajo"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+
+					String respuesta3;
+					respuesta3=numero3.getText();
+
+					if(respuesta3.equals("arriba"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					String respuesta4;
+					respuesta4=numero4.getText();
+
+					if(respuesta4.equals("derecha"))
+					{
+						puntos=puntos+1;
+						System.out.println("correcto");
+					}else{
+						System.out.println("incorrecto");
+					}
+
+					System.out.println("TOTAL: "+puntos);
+
+							if (puntos==4)
+							{
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: EXCELENTE","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}
+
+							else if(puntos==3){
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: REGULAR","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}
+
+							else if (puntos==3){
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: DEFICIENTE","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}
+							else if(puntos<3){
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: MALA","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}
+							/*else if(puntos==0){
+								JOptionPane.showMessageDialog(this,"Deteccion de Contrastes: MALA","RESULTADO CONTRASTE",JOptionPane.YES_NO_OPTION);
+							}*/
+								puntosColor=puntosColor+puntos;
+
+
+								JOptionPane.showMessageDialog(this,"GRACIAS POR USAR TEST_VISUAL","FINAL",JOptionPane.YES_NO_OPTION);
+			
+			//Resultados result =new Resultados();
+								ProyectoFinal ultimo = new ProyectoFinal();
+		}
+		if (event.getSource()==this.volver)
+		{
+			dispose();
+			Contraste c= new Contraste();
+		}
+	}
+
+	public void setPuntosColor()
+	{
+		this.puntosColor=puntosColor;
+	}
+	
+}
