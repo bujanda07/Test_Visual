@@ -1,0 +1,37 @@
+import java.awt.BorderLayout;
+import java.awt.*;
+import javax.swing.*;
+import java.awt.image.*;
+import java.io.*;
+import javax.imageio.*;
+import java.awt.event.*;
+
+
+public class Indicaciones extends JPanel {
+
+	BufferedImage imagen;
+	Image subimagen;
+
+	public Indicaciones()
+	{
+
+		try{
+			imagen=ImageIO.read(new File("./imagenes/indicaciones.png"));
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+
+		subimagen=imagen.getSubimage(0,0,774,426);
+		this.setVisible(true);
+		this.setLayout(null);
+	}
+
+	public void paintComponent(Graphics g){
+
+		super.paintComponent(g);
+		g.drawImage(subimagen,0,0,774,426,null);
+	}
+	
+	
+}
